@@ -1,1 +1,68 @@
-<html></html>
+<html>
+  <head>
+    <title>Interpreter</title>
+  </head>
+  <body>
+    <p>Your Code:</p>
+    <textarea style="resize: none;" rows="40" cols="100" id="code"></textarea>
+    <button onclick="runcode">Run</button>
+    
+    <p id="output"></p>
+    
+    <script>
+      function runcode() {
+        var end = false;
+        var charread = 0;
+        var textcode = document.getElementById("code");
+        var pointer = new Array(32); for (var i = 0;i<pointer.length;i++) {pointer[i] = 0}
+        var pointerindex = 0;
+        while (end_ === false) {
+          
+          // interpret
+          
+          if (textcode[charread] === "+") {
+            pointer[pointerindex] += 1;
+          }
+          if (textcode[charread] === "-") {
+            pointer[pointerindex] -= 1;
+          }
+          if (textcode[charread] === ">") {
+            pointerindex +=1;
+          }
+          if (textcode[charread] === "<") {
+            pointerindex -=1;
+          }
+          
+          // brackets
+          
+          if (textcode[charread] = "[" && pointer[pointerindex] === 0) {
+            var indexr = 0;
+            var readr = charread+1;
+            while (true) {
+              if (textcode[readr] = "[") {indexr += 1}
+              if (textcode[readr] = "]" && indexr != 0) {indexr -= 1} else {
+                if (textcode[readr] = "]" && indexr === 0) {charread=readr;break;}
+              }
+              readr += 1;
+            }
+          }
+          
+          if (textcode[charread] = "]" && pointer[pointerindex] != 0) {
+            var indexr = 0;
+            var readr = charread-1;
+            while (true) {
+              if (textcode[readr] = "]") {indexr += 1}
+              if (textcode[readr] = "[" && indexr != 0) {indexr -= 1} else {
+                if (textcode[readr] = "[" && indexr === 0) {charread=readr;break;}
+              }
+              readr -= 1;
+            }
+          }
+          
+          // other stuff
+          
+        }
+      }
+    </script>
+  </body>
+</html>
