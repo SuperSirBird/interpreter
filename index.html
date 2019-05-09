@@ -23,43 +23,43 @@
           
           // interpret
           
-          if (textcode[charread] === "+") {
+          if (textcode[charread] == "+") {
             pointer[pointerindex] += 1;
           }
-          if (textcode[charread] === "-") {
+          if (textcode[charread] == "-") {
             pointer[pointerindex] -= 1;
           }
-          if (textcode[charread] === ">") {
+          if (textcode[charread] == ">") {
             pointerindex +=1;
           }
-          if (textcode[charread] === "<") {
+          if (textcode[charread] == "<") {
             pointerindex -=1;
           }
-          if (textcode[charread] === ".") {
+          if (textcode[charread] == ".") {
             document.getElementById("output").innerHTML += pointer[pointerindex];
           }
           
           // brackets
           
-          if (textcode[charread] = "[" && pointer[pointerindex] === 0) {
+          if (textcode[charread] === "[" && pointer[pointerindex] === 0) {
             var indexr = 0;
             var readr = charread+1;
             while (true) {
-              if (textcode[readr] = "[") {indexr += 1}
-              if (textcode[readr] = "]" && indexr != 0) {indexr -= 1} else {
-                if (textcode[readr] = "]" && indexr === 0) {charread=readr;break;}
+              if (textcode[readr] === "[") {indexr += 1}
+              if (textcode[readr] === "]" && indexr != 0) {indexr -= 1} else {
+                if (textcode[readr] === "]" && indexr === 0) {charread=readr;break;}
               }
               readr += 1;
             }
           }
           
-          if (textcode[charread] = "]" && pointer[pointerindex] != 0) {
+          if (textcode[charread] === "]" && pointer[pointerindex] != 0) {
             var indexr = 0;
             var readr = charread-1;
             while (true) {
-              if (textcode[readr] = "]") {indexr += 1}
-              if (textcode[readr] = "[" && indexr != 0) {indexr -= 1} else {
-                if (textcode[readr] = "[" && indexr === 0) {charread=readr;break;}
+              if (textcode[readr] === "]") {indexr += 1}
+              if (textcode[readr] === "[" && indexr != 0) {indexr -= 1} else {
+                if (textcode[readr] === "[" && indexr === 0) {charread=readr;break;}
               }
               readr -= 1;
             }
