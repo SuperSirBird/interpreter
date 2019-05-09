@@ -32,6 +32,9 @@
           if (textcode[charread] === "<") {
             pointerindex -=1;
           }
+          if (textcode[charread] === ".") {
+            document.getElementById("output").innerHTML += pointer[pointerindex];
+          }
           
           // brackets
           
