@@ -8,7 +8,7 @@
     <textarea style="resize: none;background:black;color:lawngreen;font-weight:bold;" rows="20" cols="100" id="code"></textarea>
     <button onclick="runcode()">Run</button>
     
-    <p id="output"></p>
+    <p id="output" style="background:black;color:lawngreen;font-weight:bold;border-top:solid lawngreen 3px;"></p>
     
     <script>
       function runcode() {
@@ -18,6 +18,7 @@
         var textcode = document.getElementById("code").value;
         var pointer = new Array(32); for (var i = 0;i<pointer.length;i++) {pointer[i] = 0}
         var pointerindex = 0;
+        document.getElementById("output").innerHTML = ">> Output: <br><br>"
         while (end_ == false) {
           
           // interpret
