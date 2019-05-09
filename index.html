@@ -41,6 +41,8 @@
           
           // brackets
           
+          try {
+          
           if (textcode[charread] === "[" && pointer[pointerindex] === 0) {
             var indexr = 0;
             var readr = charread+1;
@@ -63,7 +65,7 @@
               }
               readr -= 1;
             }
-          }
+          }} catch(err) {alert(err)}
           
           // other stuff
           
