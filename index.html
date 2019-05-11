@@ -16,7 +16,7 @@
         var end_ = false;
         var charread = 0;
         var textcode = document.getElementById("code").value;
-        var pointer = new Array(32); for (var i = 0;i<pointer.length;i++) {pointer[i] = 0}
+        var pointer = new Array(1024); for (var i = 0;i<pointer.length;i++) {pointer[i] = 0}
         var pointerindex = 0;
         document.getElementById("output").innerHTML = ">> Output: <br><br>"
         while (end_ == false) {
@@ -24,10 +24,10 @@
           // interpret
           
           if (textcode[charread] == "+") {
-            pointer[pointerindex] += 1;
+            pointer[pointerindex] += 1; if (pointer[pointerindex] > 255) {pointer[pointerindex] = 0}
           }
           if (textcode[charread] == "-") {
-            pointer[pointerindex] -= 1;
+            pointer[pointerindex] -= 1; if (pointer[pointerindex] < 0) {pointer[pointerindex] = 255}
           }
           if (textcode[charread] == ">") {
             pointerindex +=1;
