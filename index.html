@@ -36,7 +36,8 @@
             pointerindex -=1;
           }
           if (textcode[charread] == ".") {
-            document.getElementById("output").innerHTML += String.fromCharCode(pointer[pointerindex]);
+            if (pointer[pointerindex] == 13) {document.getElementById("output").innerHTML += "<br>";} else {
+            document.getElementById("output").innerHTML += String.fromCharCode(pointer[pointerindex]);}
           }
           
           // brackets
