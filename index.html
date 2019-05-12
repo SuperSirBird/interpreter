@@ -7,8 +7,7 @@
     <p>Your Code:</p>
     <textarea style="resize: none;background:black;color:lawngreen;font-weight:bold;outline:none;" rows="20" cols="150" id="code"></textarea>
     <button onclick="runcode()">Run</button>
-    
-    <p id="output" style="background:black;color:lawngreen;font-weight:bold;font-family:Monospace;">Output</p>
+    <textarea style="resize: none;background:black;color:lawngreen;font-weight:bold;outline:none;" rows="20" cols="150" id="output" disabled value=">> Output: ">
     
     <script>
       function runcode() {
@@ -18,7 +17,7 @@
         var textcode = document.getElementById("code").value;
         var pointer = new Array(1024); for (var i = 0;i<pointer.length;i++) {pointer[i] = 0}
         var pointerindex = 0;
-        document.getElementById("output").innerHTML = ">> Output: <br><br>"
+        document.getElementById("output").value = ">> Output: <br><br>"
         while (end_ == false) {
           
           // interpret
@@ -36,8 +35,7 @@
             pointerindex -=1;
           }
           if (textcode[charread] == ".") {
-            if (pointer[pointerindex] == 13) {document.getElementById("output").innerHTML += "<br>";} else {
-            document.getElementById("output").innerHTML += String.fromCharCode(pointer[pointerindex]);}
+            document.getElementById("output").value += String.fromCharCode(pointer[pointerindex]);
           }
           
           // brackets
